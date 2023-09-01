@@ -123,11 +123,13 @@ use:
 */
 
 function pickMystery() {
-  return {
+  const mysteryObject = {
     suspect: selectRandom(suspectsArray),
     weapon: selectRandom(weaponsArray),
     room: selectRandom(roomsArray),
   };
+
+  return mysteryObject;
 }
 
 
@@ -155,10 +157,10 @@ function pickMystery() {
 */
 
 function revealMystery(envelope) {
-  const suspectName = envelope.suspect.firstName;
-  const suspectLastName = envelope.suspect.lastName;
+  const firstName = envelope.suspect.firstName;
+  const lastName = envelope.suspect.lastName;
   const weapon = envelope.weapon.name;
   const room = envelope.room.name;
 
-  return `${suspectName} ${suspectLastName} killed Mr. Boddy using the ${weapon} in the ${room}!`
+  return `${firstName} ${lastName} killed Mr. Boddy using the ${weapon} in the ${room}!`
 }
